@@ -12,7 +12,7 @@
   <body>
     <header class="site-header">
       <div class="brand-group">
-        <a class="brand" href="/#news" aria-label="Начало" data-i18n-aria="homeLabel">
+        <a class="brand" href="/news" aria-label="Начало" data-i18n-aria="homeLabel">
           <img src="/assets/brand/logo.png" alt="" />
           <span>арх. Иво Капков</span>
         </a>
@@ -22,10 +22,10 @@
         </div>
       </div>
       <nav class="site-nav" aria-label="Основна навигация" data-i18n-aria="primaryNav">
-        <a href="/#news" data-i18n="news">Актуално</a>
-        <a href="/#gallery" data-i18n="gallery">Галерия</a>
-        <a href="/#biography" data-i18n="biography">Биография</a>
-        <a href="/#contacts" data-i18n="contacts">Контакти</a>
+        <a href="/news" data-i18n="news">Актуално</a>
+        <a href="/gallery" data-i18n="gallery">Галерия</a>
+        <a href="/biography" data-i18n="biography">Биография</a>
+        <a href="/contacts" data-i18n="contacts">Контакти</a>
       </nav>
     </header>
 
@@ -34,13 +34,28 @@
         <p class="error-code" aria-hidden="true">404</p>
         <h1 data-i18n="title">Страницата не е намерена</h1>
         <p data-i18n="message">Адресът може да е променен или страницата вече да не съществува.</p>
-        <a class="error-home-link" href="/#news" data-i18n="homeAction">Към началната страница</a>
+        <a class="error-home-link" href="/news" data-i18n="homeAction">Към началната страница</a>
       </div>
     </main>
 
     <footer class="site-footer">© 2026 Kapkov.com</footer>
 
     <script>
+      const legacyRoutes = {
+        "/актуално": "/news",
+        "/галерия": "/gallery",
+        "/биография": "/biography",
+        "/контакти": "/contacts",
+        "/aktualno": "/news",
+        "/galeria": "/gallery",
+        "/biografia": "/biography",
+        "/kontakti": "/contacts"
+      };
+      const requestedPath = decodeURIComponent(window.location.pathname).replace(/\/+$/, "").toLowerCase();
+      if (legacyRoutes[requestedPath]) {
+        window.location.replace(legacyRoutes[requestedPath]);
+      }
+
       const translations = {
         bg: {
           pageTitle: "Страницата не е намерена | арх. Иво Капков",

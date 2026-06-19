@@ -44,6 +44,12 @@ let currentLanguage = localStorage.getItem("kapkov-language") === "en" ? "en" : 
 
 const DEFAULT_TAB = "news";
 const VALID_TABS = ["news", "gallery", "biography", "contacts"];
+const TAB_PATHS = {
+  news: "/news",
+  gallery: "/gallery",
+  biography: "/biography",
+  contacts: "/contacts",
+};
 const LEGACY_TABS = {
   home: "news",
   new: "news",
@@ -174,15 +180,21 @@ const I18N = {
 };
 
 const getActiveTab = () => {
-  const rawTab = window.location.hash.replace("#", "");
+  const queryTab = new URLSearchParams(window.location.search).get("route");
+  const hashTab = window.location.hash.replace("#", "");
+  const pathTab = decodeURIComponent(window.location.pathname)
+    .replace(/^\/+|\/+$/g, "")
+    .toLowerCase();
+  const rawTab = queryTab || hashTab || pathTab || DEFAULT_TAB;
   const tab = LEGACY_TABS[rawTab] || rawTab;
   return VALID_TABS.includes(tab) ? tab : DEFAULT_TAB;
 };
 
 const setActiveTab = (tab = getActiveTab()) => {
-  const currentHash = window.location.hash.replace("#", "");
-  if (currentHash && currentHash !== tab) {
-    window.history.replaceState(null, "", `#${tab}`);
+  const canonicalPath = TAB_PATHS[tab];
+  const currentUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+  if (currentUrl !== canonicalPath) {
+    window.history.replaceState({ tab }, "", canonicalPath);
   }
 
   tabPanels.forEach((panel) => {
@@ -190,7 +202,7 @@ const setActiveTab = (tab = getActiveTab()) => {
   });
 
   navLinks.forEach((link) => {
-    const isActive = link.getAttribute("href") === `#${tab}`;
+    const isActive = link.dataset.navKey === tab;
     link.classList.toggle("is-active", isActive);
     if (isActive) {
       link.setAttribute("aria-current", "page");
@@ -1133,8 +1145,18 @@ dialog.addEventListener("close", () => {
   activeProject = null;
 });
 window.addEventListener("hashchange", scheduleTabUpdate);
+window.addEventListener("popstate", scheduleTabUpdate);
 window.addEventListener("load", scheduleTabUpdate);
-navLinks.forEach((link) => link.addEventListener("click", scheduleTabUpdate));
+document.querySelectorAll("[data-nav-key]").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    const tab = link.dataset.navKey;
+    if (!VALID_TABS.includes(tab)) return;
+    window.history.pushState({ tab }, "", TAB_PATHS[tab]);
+    scheduleTabUpdate();
+  });
+});
 languageButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const nextLanguage = button.dataset.lang;
