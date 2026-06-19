@@ -657,6 +657,65 @@ main {
   text-align: center;
 }
 
+.error-page {
+  display: grid;
+  align-items: center;
+  width: min(1180px, calc(100% - 44px));
+  min-height: calc(100vh - 144px);
+  margin: 0 auto;
+  padding: clamp(48px, 8vw, 96px) 0;
+}
+
+.error-content {
+  max-width: 640px;
+}
+
+.error-code {
+  margin: 0 0 24px;
+  color: var(--brand);
+  font-size: clamp(76px, 12vw, 142px);
+  font-weight: 400;
+  line-height: 0.8;
+}
+
+.error-content h1 {
+  margin: 0 0 14px;
+  color: var(--ink);
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.error-content > p:not(.error-code) {
+  max-width: 540px;
+  margin: 0 0 28px;
+  color: var(--muted);
+}
+
+.error-home-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 9px 15px;
+  border: 1px solid var(--brand);
+  border-radius: 3px;
+  background: var(--brand);
+  color: #ffffff;
+  text-decoration: none;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.error-home-link:hover,
+.error-home-link:focus-visible {
+  background: #ffffff;
+  color: var(--brand);
+}
+
+.error-home-link:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 4px;
+}
+
 .project-dialog {
   width: min(1060px, calc(100vw - 28px));
   max-height: calc(100vh - 28px);
@@ -983,6 +1042,16 @@ main {
 
   main {
     min-height: calc(100dvh - 132px);
+  }
+
+  .error-page {
+    width: calc(100% - 36px);
+    min-height: calc(100dvh - 178px);
+    padding: 52px 0 64px;
+  }
+
+  .error-code {
+    margin-bottom: 20px;
   }
 
   .home-hero {
