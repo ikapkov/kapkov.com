@@ -1,0 +1,64 @@
+[
+  {
+    "folder": "Склад от навесен тип",
+    "title": "Склад от навесен тип",
+    "model": "model.glb",
+    "images": ["cover.jpg", "image-02.jpg", "image-03.jpg", "image-04.jpg", "image-05.jpg", "image-06.jpg", "image-07.jpg", "image-08.jpg"]
+  },
+  {
+    "folder": "Стоково Тържище",
+    "title": "Стоково Тържище",
+    "images": ["cover.jpg", "image-02.jpg", "image-03.jpg", "image-04.jpg", "image-05.jpg", "image-06.jpg"]
+  },
+  {
+    "folder": "Хангар за частни самолети",
+    "title": "Хангар за частни и корпоративни самолети",
+    "images": ["cover.jpg", "image-02.jpg"]
+  },
+  {
+    "folder": "Пешеходен мост",
+    "title": "Пешеходен мост*",
+    "images": ["cover.jpg", "image-02.jpg", "image-03.jpg"]
+  },
+  {
+    "folder": "Авиоремонтна база",
+    "title": "Авиоремонтна база",
+    "images": ["cover.jpg", "image-02.jpg", "image-03.jpg", "image-04.jpg", "image-05.jpg", "image-06.jpg", "image-07.jpg", "image-08.jpg", "image-09.jpg", "image-10.jpg"]
+  },
+  {
+    "folder": "Администрация на завод",
+    "title": "Административна сграда на завод*",
+    "images": ["cover.jpg", "image-02.jpg"]
+  },
+  {
+    "folder": "Селскостопански склад",
+    "title": "Склад за техника и селскостопанска продукция",
+    "images": ["cover.jpg", "image-02.jpg", "image-03.jpg", "image-04.jpg", "image-05.jpg", "image-06.jpg"]
+  },
+  {
+    "folder": "Парк",
+    "title": "Градски парк",
+    "images": ["cover.jpg", "image-02.jpg", "image-03.jpg"]
+  },
+  {
+    "folder": "Разширение",
+    "title": "Разширение на производствен цех",
+    "model": "model.glb",
+    "images": ["cover.jpg", "image-02.jpg", "image-03.jpg", "image-04.jpg", "image-05.jpg", "image-06.jpg"]
+  },
+  {
+    "folder": "Фамилна Къща",
+    "title": "Фамилна къща",
+    "images": ["cover.jpg", "image-02.jpg", "image-03.jpg", "image-04.jpg", "image-05.jpg"]
+  },
+  {
+    "folder": "KCM",
+    "title": "Реновация на административна сграда, здравен център и главен вход на завод*",
+    "images": ["cover.jpg", "image-02.jpg", "image-03.jpg"]
+  },
+  {
+    "folder": "Други",
+    "title": "Други",
+    "images": ["cover.jpg", "image-02.jpg", "image-03.jpg", "image-04.jpg", "image-05.jpg", "image-06.jpg", "image-07.jpg", "image-08.jpg", "image-09.jpg", "image-10.jpg", "image-11.jpg", "image-12.jpg", "image-13.jpg"]
+  }
+]

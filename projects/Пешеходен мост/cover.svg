@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Пешеходен мост">
+  <rect width="1200" height="900" fill="#dce8e2"/>
+  <rect y="620" width="1200" height="280" fill="#aeb8a6"/>
+  <path d="M70 665c210-60 376-60 530 0s315 60 530 0" fill="none" stroke="#2d5d6b" stroke-width="36"/>
+  <path d="M130 570c220-132 700-132 940 0" fill="none" stroke="#1f282d" stroke-width="18"/>
+  <path d="M160 560h880" stroke="#f8f8f2" stroke-width="40"/>
+  <path d="M160 560h880" stroke="#1f282d" stroke-width="8"/>
+  <g stroke="#1f282d" stroke-width="7">
+    <path d="M250 515v100"/>
+    <path d="M390 468v130"/>
+    <path d="M530 438v145"/>
+    <path d="M670 438v145"/>
+    <path d="M810 468v130"/>
+    <path d="M950 515v100"/>
+  </g>
+</svg>

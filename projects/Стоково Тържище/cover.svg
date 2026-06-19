@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Стоково Тържище">
+  <rect width="1200" height="900" fill="#d9ded7"/>
+  <rect y="620" width="1200" height="280" fill="#9ba78e"/>
+  <path d="M120 610h960L940 360H260z" fill="#f7f7f2" stroke="#2d3438" stroke-width="10"/>
+  <path d="M255 360h690l-72-102H327z" fill="#8f2f2a"/>
+  <path d="M205 610h790" stroke="#2d3438" stroke-width="18"/>
+  <g fill="#2d5d6b">
+    <rect x="300" y="438" width="110" height="142"/>
+    <rect x="454" y="438" width="110" height="142"/>
+    <rect x="608" y="438" width="110" height="142"/>
+    <rect x="762" y="438" width="110" height="142"/>
+  </g>
+  <path d="M90 700c180-38 340-28 480 0s328 37 540-18" fill="none" stroke="#ffffff" stroke-width="14" opacity=".7"/>
+</svg>

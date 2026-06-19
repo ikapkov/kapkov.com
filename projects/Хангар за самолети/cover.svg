@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Хангар за самолети">
+  <rect width="1200" height="900" fill="#e3e1d9"/>
+  <rect y="640" width="1200" height="260" fill="#737b7f"/>
+  <path d="M160 640h880V340c-92-92-206-138-440-138S252 248 160 340z" fill="#fbfaf4" stroke="#23292d" stroke-width="10"/>
+  <path d="M245 640V410h710v230z" fill="#b9c5c9" stroke="#23292d" stroke-width="8"/>
+  <path d="M300 525h600M475 410v230M725 410v230" stroke="#23292d" stroke-width="7"/>
+  <path d="M260 720l240-42 74 22 300-54 58 26-340 74-90-24-214 38z" fill="#8f2f2a"/>
+</svg>
