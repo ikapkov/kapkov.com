@@ -43,6 +43,7 @@ let resizeHero = () => {};
 let heroInitPromise = null;
 let currentLanguage = localStorage.getItem("kapkov-language") === "en" ? "en" : "bg";
 
+const PROJECT_ASSET_VERSION = "20260620";
 const DEFAULT_TAB = "news";
 const VALID_TABS = ["news", "gallery", "biography", "contacts"];
 const TAB_PATHS = {
@@ -251,7 +252,7 @@ const fileExists = async (url) => {
   }
 };
 
-const projectPath = (project, file) => encodeURI(`projects/${project.folder}/${file}`);
+const projectPath = (project, file) => `${encodeURI(`projects/${project.folder}/${file}`)}?v=${PROJECT_ASSET_VERSION}`;
 
 const folderTitle = (folder) => folder.replace(/[-_]+/g, " ").trim();
 
@@ -731,7 +732,7 @@ const renderGalleryCards = async (projects) => {
 };
 
 const renderGallery = async () => {
-  projectsCache = await fetch("projects/projects.json").then((response) => response.json());
+  projectsCache = await fetch(`projects/projects.json?v=${PROJECT_ASSET_VERSION}`).then((response) => response.json());
   await renderGalleryCards(projectsCache);
 };
 
