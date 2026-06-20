@@ -180,7 +180,7 @@ const I18N = {
       previousImage: "previous image",
       nextImage: "next image",
       socialProfiles: "Social profiles",
-      teamworkCredit: "The project is the result of collaborative work.",
+      teamworkCredit: "The project was developed collaboratively.",
     },
     bio: {
       title: "Biography",
