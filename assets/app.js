@@ -911,7 +911,10 @@ const initialiseHero = async () => {
           sampleScale.x = viewportAspect / imageAspect;
         }
 
-        return clamp((uv - 0.5) * sampleScale / zoom + 0.5 + offset + pointer, vec2(0.001), vec2(0.999));
+        vec2 scaledSample = sampleScale / max(zoom, 0.001);
+        vec2 availableOffset = max((vec2(1.0) - scaledSample) * 0.5 - vec2(0.002), vec2(0.0));
+        vec2 safeOffset = clamp(offset + pointer, -availableOffset, availableOffset);
+        return clamp((uv - 0.5) * scaledSample + 0.5 + safeOffset, vec2(0.002), vec2(0.998));
       }
 
       void main() {
@@ -925,17 +928,18 @@ const initialiseHero = async () => {
         vec2 pixel = 1.0 / max(uViewport, vec2(1.0));
         vec2 blurDirectionA = vec2(1.0, 0.45) * pixel * uDirection;
         vec2 blurDirectionB = vec2(-0.35, 1.0) * pixel;
+        vec2 sampleInset = vec2(0.002) + max(abs(blurDirectionA), abs(blurDirectionB)) * blur;
 
-        vec4 colorA = texture2D(uTextureA, uvA) * 0.34
-          + texture2D(uTextureA, uvA + blurDirectionA * blur) * 0.18
-          + texture2D(uTextureA, uvA - blurDirectionA * blur) * 0.18
-          + texture2D(uTextureA, uvA + blurDirectionB * blur) * 0.15
-          + texture2D(uTextureA, uvA - blurDirectionB * blur) * 0.15;
-        vec4 colorB = texture2D(uTextureB, uvB) * 0.34
-          + texture2D(uTextureB, uvB + blurDirectionA * blur) * 0.18
-          + texture2D(uTextureB, uvB - blurDirectionA * blur) * 0.18
-          + texture2D(uTextureB, uvB + blurDirectionB * blur) * 0.15
-          + texture2D(uTextureB, uvB - blurDirectionB * blur) * 0.15;
+        vec4 colorA = texture2D(uTextureA, clamp(uvA, sampleInset, vec2(1.0) - sampleInset)) * 0.34
+          + texture2D(uTextureA, clamp(uvA + blurDirectionA * blur, sampleInset, vec2(1.0) - sampleInset)) * 0.18
+          + texture2D(uTextureA, clamp(uvA - blurDirectionA * blur, sampleInset, vec2(1.0) - sampleInset)) * 0.18
+          + texture2D(uTextureA, clamp(uvA + blurDirectionB * blur, sampleInset, vec2(1.0) - sampleInset)) * 0.15
+          + texture2D(uTextureA, clamp(uvA - blurDirectionB * blur, sampleInset, vec2(1.0) - sampleInset)) * 0.15;
+        vec4 colorB = texture2D(uTextureB, clamp(uvB, sampleInset, vec2(1.0) - sampleInset)) * 0.34
+          + texture2D(uTextureB, clamp(uvB + blurDirectionA * blur, sampleInset, vec2(1.0) - sampleInset)) * 0.18
+          + texture2D(uTextureB, clamp(uvB - blurDirectionA * blur, sampleInset, vec2(1.0) - sampleInset)) * 0.18
+          + texture2D(uTextureB, clamp(uvB + blurDirectionB * blur, sampleInset, vec2(1.0) - sampleInset)) * 0.15
+          + texture2D(uTextureB, clamp(uvB - blurDirectionB * blur, sampleInset, vec2(1.0) - sampleInset)) * 0.15;
 
         float noise = (hash(floor(vUv * vec2(92.0, 54.0))) - 0.5) * 0.035 * sin(transition * 3.14159265);
         vec4 finalColor = mix(colorA, colorB, clamp(transition + noise, 0.0, 1.0));
