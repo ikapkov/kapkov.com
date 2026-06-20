@@ -881,7 +881,8 @@ main {
 
 .project-description {
   margin: 0;
-  max-width: 760px;
+  width: 100%;
+  max-width: none;
   color: var(--muted);
   font-size: 16px;
   line-height: 1.55;
