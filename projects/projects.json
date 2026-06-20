@@ -1,64 +1,81 @@
 [
   {
-    "folder": "Склад от навесен тип",
-    "title": "Склад от навесен тип",
+    "folder": "Склад от навесен тип и открит склад за строителни материали",
+    "title": "Склад от навесен тип и открит склад за строителни материали",
+    "titleEn": "Canopy-Type Warehouse and Open Building Materials Storage",
     "model": "model.glb",
-    "images": ["cover.jpg", "image-02.jpg", "image-03.jpg", "image-04.jpg", "image-05.jpg", "image-06.jpg", "image-07.jpg", "image-08.jpg"]
+    "images": ["cover.jpg", "image-02.jpg", "image-03.jpeg", "image-03.jpg", "image-04.jpg", "image-05.jpg", "image-06.jpg", "image-07.jpg", "image-08.jpg"]
   },
   {
-    "folder": "Стоково Тържище",
-    "title": "Стоково Тържище",
+    "folder": "Стоково тържище",
+    "title": "Стоково тържище",
+    "titleEn": "Wholesale Market",
+    "model": "model.glb",
     "images": ["cover.jpg", "image-02.jpg", "image-03.jpg", "image-04.jpg", "image-05.jpg", "image-06.jpg"]
   },
   {
-    "folder": "Хангар за частни самолети",
+    "folder": "Хангар за частни и корпоративни самолети",
     "title": "Хангар за частни и корпоративни самолети",
+    "titleEn": "Hangar for Private and Corporate Aircraft",
+    "teamwork": true,
     "images": ["cover.jpg", "image-02.jpg"]
   },
   {
     "folder": "Пешеходен мост",
-    "title": "Пешеходен мост*",
+    "title": "Пешеходен мост",
+    "titleEn": "Pedestrian Bridge",
+    "teamwork": true,
     "images": ["cover.jpg", "image-02.jpg", "image-03.jpg"]
   },
   {
-    "folder": "Авиоремонтна база",
-    "title": "Авиоремонтна база",
+    "folder": "Авиоремонтна и сервизна база",
+    "title": "Авиоремонтна и сервизна база",
+    "titleEn": "Aircraft Maintenance and Service Base",
     "images": ["cover.jpg", "image-02.jpg", "image-03.jpg", "image-04.jpg", "image-05.jpg", "image-06.jpg", "image-07.jpg", "image-08.jpg", "image-09.jpg", "image-10.jpg"]
   },
   {
-    "folder": "Администрация на завод",
-    "title": "Административна сграда на завод*",
+    "folder": "Административна сграда",
+    "title": "Административна сграда",
+    "titleEn": "Administrative Building",
+    "teamwork": true,
     "images": ["cover.jpg", "image-02.jpg"]
   },
   {
-    "folder": "Селскостопански склад",
-    "title": "Склад за техника и селскостопанска продукция",
+    "folder": "Склад за селскостопанска продукция и техника",
+    "title": "Склад за селскостопанска продукция и техника",
+    "titleEn": "Agricultural Produce and Equipment Warehouse",
     "images": ["cover.jpg", "image-02.jpg", "image-03.jpg", "image-04.jpg", "image-05.jpg", "image-06.jpg"]
   },
   {
-    "folder": "Парк",
+    "folder": "Градски парк",
     "title": "Градски парк",
+    "titleEn": "Urban Park",
     "images": ["cover.jpg", "image-02.jpg", "image-03.jpg"]
   },
   {
-    "folder": "Разширение",
-    "title": "Разширение на производствен цех",
+    "folder": "Разширение на склад за промишлени стоки",
+    "title": "Разширение на склад за промишлени стоки",
+    "titleEn": "Industrial Goods Warehouse Extension",
     "model": "model.glb",
     "images": ["cover.jpg", "image-02.jpg", "image-03.jpg", "image-04.jpg", "image-05.jpg", "image-06.jpg"]
   },
   {
-    "folder": "Фамилна Къща",
-    "title": "Фамилна къща",
+    "folder": "Еднофамилна Къща",
+    "title": "Еднофамилна къща",
+    "titleEn": "Single-Family House",
     "images": ["cover.jpg", "image-02.jpg", "image-03.jpg", "image-04.jpg", "image-05.jpg"]
   },
   {
-    "folder": "KCM",
-    "title": "Реновация на административна сграда, здравен център и главен вход на завод*",
+    "folder": "Реновацияна на административна сграда, здравен център и главен вход",
+    "title": "Реновацияна на административна сграда, здравен център и главен вход",
+    "titleEn": "Renovation of an Administrative Building, Health Center and Main Entrance",
+    "teamwork": true,
     "images": ["cover.jpg", "image-02.jpg", "image-03.jpg"]
   },
   {
     "folder": "Други",
     "title": "Други",
-    "images": ["cover.jpg", "image-02.jpg", "image-03.jpg", "image-04.jpg", "image-05.jpg", "image-06.jpg", "image-07.jpg", "image-08.jpg", "image-09.jpg", "image-10.jpg", "image-11.jpg", "image-12.jpg", "image-13.jpg"]
+    "titleEn": "Other",
+    "images": ["cover.jpg", "image-02.jpg", "image-03.jpg", "image-04.jpg", "image-05.jpg", "image-06.jpg", "image-07.jpg", "image-08.jpg", "image-010.jpg", "image-11.jpg", "image-12.jpg", "image-13.jpg"]
   }
 ]

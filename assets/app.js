@@ -10,6 +10,7 @@ const dialog = document.querySelector("#projectDialog");
 const closeDialog = document.querySelector("#closeDialog");
 const projectTitle = document.querySelector("#projectTitle");
 const projectDescription = document.querySelector("#projectDescription");
+const projectCredit = document.querySelector("#projectCredit");
 const projectCover = document.querySelector("#projectCover");
 const viewerFrame = document.querySelector("#viewerFrame");
 const modelCanvas = document.querySelector("#modelCanvas");
@@ -60,17 +61,17 @@ const LEGACY_TABS = {
 };
 
 const PROJECT_TITLE_EN = new Map([
-  ["Склад от навесен тип", "Canopy-Type Warehouse"],
-  ["Стоково Тържище", "Wholesale Market"],
+  ["Склад от навесен тип и открит склад за строителни материали", "Canopy-Type Warehouse and Open Building Materials Storage"],
+  ["Стоково тържище", "Wholesale Market"],
   ["Хангар за частни и корпоративни самолети", "Hangar for Private and Corporate Aircraft"],
-  ["Пешеходен мост*", "Pedestrian Bridge*"],
-  ["Авиоремонтна база", "Aircraft Maintenance Base"],
-  ["Административна сграда на завод*", "Factory Administration Building*"],
-  ["Склад за техника и селскостопанска продукция", "Warehouse for Machinery and Agricultural Products"],
+  ["Пешеходен мост", "Pedestrian Bridge"],
+  ["Авиоремонтна и сервизна база", "Aircraft Maintenance and Service Base"],
+  ["Административна сграда", "Administrative Building"],
+  ["Склад за селскостопанска продукция и техника", "Agricultural Produce and Equipment Warehouse"],
   ["Градски парк", "Urban Park"],
-  ["Разширение на производствен цех", "Production Workshop Extension"],
-  ["Фамилна къща", "Family House"],
-  ["Реновация на административна сграда, здравен център и главен вход на завод*", "Renovation of an Administration Building, Health Center and Main Factory Entrance*"],
+  ["Разширение на склад за промишлени стоки", "Industrial Goods Warehouse Extension"],
+  ["Еднофамилна къща", "Single-Family House"],
+  ["Реновацияна на административна сграда, здравен център и главен вход", "Renovation of an Administrative Building, Health Center and Main Entrance"],
   ["Други", "Other"],
 ]);
 
@@ -101,6 +102,7 @@ const I18N = {
       previousImage: "предишна снимка",
       nextImage: "следваща снимка",
       socialProfiles: "Социални профили",
+      teamworkCredit: "Проектът е резултат от екипна работа.",
     },
     bio: {
       title: "Биография",
@@ -152,6 +154,7 @@ const I18N = {
       previousImage: "previous image",
       nextImage: "next image",
       socialProfiles: "Social profiles",
+      teamworkCredit: "This project is the result of teamwork.",
     },
     bio: {
       title: "Biography",
@@ -326,6 +329,13 @@ const updateOpenProjectLanguage = async () => {
   projectTitle.textContent = title;
   projectCover.alt = title;
   projectDescription.textContent = await resolveDescription(activeProject);
+  updateProjectCredit(activeProject);
+};
+
+const updateProjectCredit = (project) => {
+  if (!projectCredit) return;
+  projectCredit.textContent = project.teamwork ? getTranslation().labels.teamworkCredit : "";
+  projectCredit.hidden = !project.teamwork;
 };
 
 const applyLanguage = () => {
@@ -605,6 +615,7 @@ const openProject = async (project) => {
   projectCover.src = images[0];
   projectCover.alt = title;
   projectDescription.textContent = await resolveDescription(project);
+  updateProjectCredit(project);
   renderImageStrip(images, title, modelExists ? modelUrl : "", images[0]);
 
   dialog.showModal();
