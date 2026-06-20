@@ -2,67 +2,67 @@
   {
     "folder": "Склад от навесен тип и открит склад за строителни материали",
     "title": "Склад от навесен тип и открит склад за строителни материали",
-    "titleEn": "Canopy-Type Warehouse and Open Building Materials Storage",
+    "titleEn": "Open-sided warehouse and outdoor storage area for construction materials",
     "model": "model.glb",
     "images": ["cover.jpg", "image-02.jpg", "image-03.jpeg", "image-03.jpg", "image-04.jpg", "image-05.jpg", "image-06.jpg", "image-07.jpg", "image-08.jpg"]
   },
   {
     "folder": "Стоково тържище",
     "title": "Стоково тържище",
-    "titleEn": "Wholesale Market",
+    "titleEn": "Agricultural wholesale market",
     "model": "model.glb",
     "images": ["cover.jpg", "image-02.jpg", "image-03.jpg", "image-04.jpg", "image-05.jpg", "image-06.jpg"]
   },
   {
     "folder": "Хангар за частни и корпоративни самолети",
     "title": "Хангар за частни и корпоративни самолети",
-    "titleEn": "Hangar for Private and Corporate Aircraft",
+    "titleEn": "Hangar for private and corporate aircraft",
     "teamwork": true,
     "images": ["cover.jpg", "image-02.jpg"]
   },
   {
     "folder": "Пешеходен мост",
     "title": "Пешеходен мост",
-    "titleEn": "Pedestrian Bridge",
+    "titleEn": "Pedestrian bridge",
     "teamwork": true,
     "images": ["cover.jpg", "image-02.jpg", "image-03.jpg"]
   },
   {
     "folder": "Авиоремонтна и сервизна база",
     "title": "Авиоремонтна и сервизна база",
-    "titleEn": "Aircraft Maintenance and Service Base",
+    "titleEn": "Aircraft maintenance and service facility",
     "images": ["cover.jpg", "image-02.jpg", "image-03.jpg", "image-04.jpg", "image-05.jpg", "image-06.jpg", "image-07.jpg", "image-08.jpg", "image-09.jpg", "image-10.jpg"]
   },
   {
     "folder": "Административна сграда",
     "title": "Административна сграда",
-    "titleEn": "Administrative Building",
+    "titleEn": "Administrative building",
     "teamwork": true,
     "images": ["cover.jpg", "image-02.jpg"]
   },
   {
     "folder": "Склад за селскостопанска продукция и техника",
     "title": "Склад за селскостопанска продукция и техника",
-    "titleEn": "Agricultural Produce and Equipment Warehouse",
+    "titleEn": "Warehouse for agricultural produce and machinery",
     "images": ["cover.jpg", "image-02.jpg", "image-03.jpg", "image-04.jpg", "image-05.jpg", "image-06.jpg"]
   },
   {
     "folder": "Градски парк",
     "title": "Градски парк",
-    "titleEn": "Urban Park",
+    "titleEn": "Urban park",
     "images": ["cover.jpg", "image-02.jpg", "image-03.jpg"]
   },
   {
     "folder": "Разширение на склад за промишлени стоки",
     "title": "Разширение на склад за промишлени стоки",
-    "titleEn": "Industrial Goods Warehouse Extension",
+    "titleEn": "Extension of a warehouse for industrial goods",
     "model": "model.glb",
     "images": ["cover.jpg", "image-02.jpg", "image-03.jpg", "image-04.jpg", "image-05.jpg", "image-06.jpg"]
   },
   {
     "folder": "Еднофамилна Къща",
     "title": "Еднофамилна къща",
-    "titleEn": "Single-Family House",
+    "titleEn": "Family house",
     "images": ["cover.jpg", "image-02.jpg", "image-03.jpg", "image-04.jpg", "image-05.jpg"]
   },
   {

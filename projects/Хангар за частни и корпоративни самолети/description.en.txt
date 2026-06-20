@@ -1,0 +1,1 @@
+The project is for a private aircraft hangar. The building is intended for the storage and maintenance of Cessna, Concorde, Bombardier and Falcon aircraft. It includes a single open hangar space, service rooms and access for aircraft manoeuvring.

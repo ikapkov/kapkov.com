@@ -44,7 +44,7 @@ let resizeHero = () => {};
 let heroInitPromise = null;
 let currentLanguage = localStorage.getItem("kapkov-language") === "en" ? "en" : "bg";
 
-const PROJECT_ASSET_VERSION = "20260620-4k";
+const PROJECT_ASSET_VERSION = "20260620-content";
 const DEFAULT_TAB = "news";
 const VALID_TABS = ["news", "gallery", "biography", "contacts"];
 const TAB_PATHS = {
@@ -63,16 +63,16 @@ const LEGACY_TABS = {
 };
 
 const PROJECT_TITLE_EN = new Map([
-  ["Склад от навесен тип и открит склад за строителни материали", "Canopy-Type Warehouse and Open Building Materials Storage"],
-  ["Стоково тържище", "Wholesale Market"],
-  ["Хангар за частни и корпоративни самолети", "Hangar for Private and Corporate Aircraft"],
-  ["Пешеходен мост", "Pedestrian Bridge"],
-  ["Авиоремонтна и сервизна база", "Aircraft Maintenance and Service Base"],
-  ["Административна сграда", "Administrative Building"],
-  ["Склад за селскостопанска продукция и техника", "Agricultural Produce and Equipment Warehouse"],
-  ["Градски парк", "Urban Park"],
-  ["Разширение на склад за промишлени стоки", "Industrial Goods Warehouse Extension"],
-  ["Еднофамилна къща", "Single-Family House"],
+  ["Склад от навесен тип и открит склад за строителни материали", "Open-sided warehouse and outdoor storage area for construction materials"],
+  ["Стоково тържище", "Agricultural wholesale market"],
+  ["Хангар за частни и корпоративни самолети", "Hangar for private and corporate aircraft"],
+  ["Пешеходен мост", "Pedestrian bridge"],
+  ["Авиоремонтна и сервизна база", "Aircraft maintenance and service facility"],
+  ["Административна сграда", "Administrative building"],
+  ["Склад за селскостопанска продукция и техника", "Warehouse for agricultural produce and machinery"],
+  ["Градски парк", "Urban park"],
+  ["Разширение на склад за промишлени стоки", "Extension of a warehouse for industrial goods"],
+  ["Еднофамилна къща", "Family house"],
   ["Реновацияна на административна сграда, здравен център и главен вход", "Renovation of an Administrative Building, Health Center and Main Entrance"],
   ["Други", "Other"],
 ]);
@@ -180,7 +180,7 @@ const I18N = {
       previousImage: "previous image",
       nextImage: "next image",
       socialProfiles: "Social profiles",
-      teamworkCredit: "This project is the result of teamwork.",
+      teamworkCredit: "The project is the result of collaborative work.",
     },
     bio: {
       title: "Biography",
@@ -450,7 +450,10 @@ const fitCameraToObject = (camera, object, controls) => {
   const size = box.getSize(new THREE.Vector3());
   const center = box.getCenter(new THREE.Vector3());
   const maxSize = Math.max(size.x, size.y, size.z) || 1;
-  const distance = maxSize / (2 * Math.tan((camera.fov * Math.PI) / 360));
+  const portraitCompensation = camera.aspect < 1
+    ? Math.min(1.25, 0.95 / Math.max(camera.aspect, 0.65))
+    : 1;
+  const distance = (maxSize / (2 * Math.tan((camera.fov * Math.PI) / 360))) * 0.82 * portraitCompensation;
 
   camera.position.set(center.x + distance, center.y + distance * 0.65, center.z + distance);
   camera.near = Math.max(distance / 100, 0.01);
@@ -500,6 +503,8 @@ const createViewer = async (modelUrl) => {
   grid.material.transparent = true;
   scene.add(grid);
 
+  let modelForFraming = null;
+
   const resize = () => {
     const rect = viewerFrame.getBoundingClientRect();
     const width = Math.max(rect.width, 1);
@@ -507,6 +512,7 @@ const createViewer = async (modelUrl) => {
     renderer.setSize(width, height, false);
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
+    if (modelForFraming) fitCameraToObject(camera, modelForFraming, controls);
   };
 
   const resizeObserver = new ResizeObserver(resize);
@@ -530,6 +536,7 @@ const createViewer = async (modelUrl) => {
 
   const model = gltf.scene;
   scene.add(model);
+  modelForFraming = model;
   fitCameraToObject(camera, model, controls);
 
   const animate = () => {

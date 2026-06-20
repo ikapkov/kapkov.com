@@ -341,15 +341,15 @@ main {
   z-index: 3;
   display: inline-grid;
   place-items: center;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border: 1px solid var(--brand);
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.78);
   color: var(--brand);
   backdrop-filter: blur(2px);
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
+  font-size: 13.5px;
   font-weight: 400;
   line-height: 1;
   letter-spacing: 0;
@@ -884,6 +884,9 @@ main {
   max-width: 760px;
   color: var(--muted);
   font-size: 16px;
+  line-height: 1.55;
+  text-align: justify;
+  text-indent: 1.4em;
   white-space: pre-wrap;
 }
 
@@ -1227,6 +1230,7 @@ main {
 
   .project-description {
     font-size: 15px;
+    text-indent: 1em;
   }
 
   .close-button {
