@@ -103,7 +103,7 @@ const I18N = {
       previousImage: "предишна снимка",
       nextImage: "следваща снимка",
       socialProfiles: "Социални профили",
-      teamworkCredit: "Проектът е резултат от екипна работа.",
+      teamworkCredit: "Проекта е резултат от екипна работа.",
     },
     bio: {
       title: "Биография",
