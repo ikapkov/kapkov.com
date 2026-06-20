@@ -212,6 +212,7 @@ const getActiveTab = () => {
   const hashTab = window.location.hash.replace("#", "");
   const pathTab = decodeURIComponent(window.location.pathname)
     .replace(/^\/+|\/+$/g, "")
+    .split("/")[0]
     .toLowerCase();
   const rawTab = hashTab || pathTab || DEFAULT_TAB;
   const tab = LEGACY_TABS[rawTab] || rawTab;
