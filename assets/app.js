@@ -44,7 +44,7 @@ let resizeHero = () => {};
 let heroInitPromise = null;
 let currentLanguage = localStorage.getItem("kapkov-language") === "en" ? "en" : "bg";
 
-const PROJECT_ASSET_VERSION = "20260620";
+const PROJECT_ASSET_VERSION = "20260620-4k";
 const DEFAULT_TAB = "news";
 const VALID_TABS = ["news", "gallery", "biography", "contacts"];
 const TAB_PATHS = {

@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Авиоремонтна база">
-  <rect width="1200" height="900" fill="#dde7ea"/>
-  <rect y="660" width="1200" height="240" fill="#9ca7ac"/>
-  <path d="M130 650h940V345H130z" fill="#f8f8f3" stroke="#253038" stroke-width="10"/>
-  <path d="M130 345l110-120h720l110 120z" fill="#2d5d6b" stroke="#253038" stroke-width="10"/>
-  <rect x="250" y="430" width="700" height="220" fill="#cbd4d7" stroke="#253038" stroke-width="8"/>
-  <path d="M245 540h710" stroke="#253038" stroke-width="8"/>
-  <path d="M390 715h420l-82 36H472z" fill="#69764d"/>
-</svg>

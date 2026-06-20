@@ -682,7 +682,7 @@ main {
 }
 
 .error-content h1 {
-  margin: 0 0 14px;
+  margin: 0 0 6px;
   color: var(--ink);
   font-size: 16px;
   font-weight: 400;
