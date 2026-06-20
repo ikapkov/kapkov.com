@@ -749,7 +749,7 @@ main {
   margin: 0;
   max-width: calc(100% - 54px);
   color: var(--soft-ink);
-  font-size: clamp(28px, 4vw, 42px);
+  font-size: clamp(20px, 2.8vw, 29px);
   font-weight: 400;
   line-height: 1.15;
   letter-spacing: 0;
@@ -1190,7 +1190,7 @@ main {
 
   .dialog-content h2 {
     max-width: 100%;
-    font-size: 25px;
+    font-size: 18px;
     line-height: 1.18;
     overflow-wrap: anywhere;
   }
@@ -1289,7 +1289,7 @@ main {
   }
 
   .dialog-content h2 {
-    font-size: 23px;
+    font-size: 16px;
   }
 
   .viewer-frame {

@@ -2,11 +2,142 @@
 <html lang="bg">
   <head>
     <meta charset="utf-8" />
+    <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex, follow" />
-    <meta http-equiv="refresh" content="0; url=/?route=news" />
     <title>арх. Иво Капков</title>
-    <script>window.location.replace("/?route=news");</script>
+    <meta
+      name="description"
+      content="Архитектурна галерия с проекти, изображения и интерактивни 3D модели."
+    />
+    <link rel="icon" type="image/png" href="assets/brand/logo.png" />
+    <link rel="apple-touch-icon" href="assets/brand/logo.png" />
+    <link id="canonicalUrl" rel="canonical" href="https://kapkov.com/news" />
+    <link rel="stylesheet" href="assets/styles.css?v=20260620-3" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/"
+        }
+      }
+    </script>
   </head>
-  <body><a href="/?route=news">Към началната страница</a></body>
+  <body>
+    <header class="site-header">
+      <div class="brand-group">
+        <a class="brand" href="/news" data-nav-key="news" aria-label="Начало">
+        <img src="assets/brand/logo.png" alt="" />
+        <span>арх. Иво Капков</span>
+      </a>
+      <div class="language-switcher" aria-label="Избор на език">
+        <button type="button" data-lang="bg" aria-pressed="true">БГ</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      </div>
+      <nav class="site-nav" aria-label="Основна навигация">
+        <a href="/news" data-nav-key="news">Актуално</a>
+        <a href="/gallery" data-nav-key="gallery">Галерия</a>
+        <a href="/biography" data-nav-key="biography">Биография</a>
+        <a href="/contacts" data-nav-key="contacts">Контакти</a>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section class="home-hero tab-panel" id="news" data-tab-panel="news" aria-label="Актуално">
+        <canvas id="heroGallery" aria-hidden="true"></canvas>
+        <button id="heroCounter" class="hero-counter hero-counter--dark" type="button" aria-label="Следващо изображение">
+          <span id="heroCurrent">1</span><span class="hero-counter__separator"> / </span><span>5</span>
+        </button>
+      </section>
+
+      <section class="gallery-section tab-panel" id="gallery" data-tab-panel="gallery" aria-labelledby="gallery-title" hidden>
+        <h2 id="gallery-title">Галерия</h2>
+        <div class="gallery-grid" id="galleryGrid" aria-live="polite"></div>
+      </section>
+
+      <section class="bio-section tab-panel" id="biography" data-tab-panel="biography" aria-labelledby="bio-title" hidden>
+        <div class="bio-copy">
+          <h2 id="bio-title">Биография</h2>
+          <p>
+            Иво Капков е проектов ръководител, архитект и докторант, със специализация в индустриалните сгради и
+            съоръжения.
+          </p>
+          <p>
+            Роден е на 1 юни 1996 г. в град Бургас. Израства в семейство на инженер-конструктор. През 2015 г.
+            завършва с отличие средното си образование в Природо-математическа гимназия „Академик Никола
+            Обрешков“, град Бургас. Продължава висшето си образование в Университета по архитектура,
+            строителство и геодезия, град София. През 2021 г. е дипломиран със степен магистър, специализирайки в
+            катедра „Промишлени и аграрни сгради“. Награден е от Камара на архитектите в България - РК София град
+            за отлична разработка на дипломен проект.
+          </p>
+          <p>
+            След 2021 г. арх. Капков практикува като проектов ръководител и проектант на нови национални и
+            международни индустриални обекти. Развива умения в проектирането на сгради и съоръжения, управление
+            на инвестиционни процеси, координиране на проектни и строителни дейности, приложение и контрол на
+            строително-информационни модели, както и в графично представяне, изготвяне на технически детайли и
+            спецификации.
+          </p>
+          <p>
+            През 2023 г., след спечелен конкурс, арх. Капков е зачислен като редовен докторант към катедра
+            „Индустриални сгради“ в Университета по архитектура, строителство и геодезия, град София. Област на
+            неговата научно-изследователска дейност е въздействието на сглобяемите фасадни системи върху
+            архитектурния образ на индустриалните сгради.
+          </p>
+          <h3>Членства и участия в организации:</h3>
+          <ul>
+            <li>Камара на Архитектите в България, Регионална колегия – град Бургас</li>
+            <li>Съюз на Архитектите в България, Дружество София – УАСГ</li>
+          </ul>
+          <p class="bio-detail">Езикови умения: английски, немски и български език.</p>
+          <p class="bio-detail">Извънпрофесионални интереси: планинарство, ски, автомобилизъм.</p>
+        </div>
+        <div class="bio-media">
+          <img src="assets/brand/kapkov-bio.jpg" alt="арх. Иво Капков" />
+        </div>
+      </section>
+
+      <section class="text-section contact-section tab-panel" id="contacts" data-tab-panel="contacts" aria-labelledby="contact-title" hidden>
+        <h2 id="contact-title">Контакти</h2>
+        <div class="contact-copy">
+          <p>арх. Иво Капков</p>
+          <p><a href="tel:+359886497435">+359 886 497 435</a></p>
+          <p><a href="mailto:ivokapkov@gmail.com">ivokapkov@gmail.com</a></p>
+          <div class="contact-socials" aria-label="Социални профили">
+            <a href="https://instagram.com/ivo.kapkov" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <img src="https://ssl.gstatic.com/atari/images/sociallinks/instagram_gray_28dp.png" alt="" width="28" height="28" />
+            </a>
+            <a href="https://facebook.com/lvo.Kapkov/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <img src="https://ssl.gstatic.com/atari/images/sociallinks/facebook_gray_28dp.png" alt="" width="28" height="28" />
+            </a>
+            <a href="https://www.uacg.bg/nodes/arx-ivo-kapkov" target="_blank" rel="noopener noreferrer" aria-label="УАСГ">
+              <img src="https://ssl.gstatic.com/atari/images/sociallinks/link_gray_28dp.png" alt="" width="28" height="28" />
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© 2026 Kapkov.com</span>
+    </footer>
+
+    <dialog class="project-dialog" id="projectDialog">
+      <div class="dialog-shell">
+        <button class="close-button" id="closeDialog" aria-label="Затвори">×</button>
+        <div class="dialog-content">
+          <h2 id="projectTitle"></h2>
+          <div class="viewer-frame" id="viewerFrame">
+            <img id="projectCover" alt="" />
+            <canvas id="modelCanvas"></canvas>
+            <div class="model-state" id="modelState"></div>
+          </div>
+          <div class="image-strip" id="imageStrip" aria-label="Снимки на проекта"></div>
+          <p class="project-description" id="projectDescription"></p>
+          <p class="project-credit" id="projectCredit" hidden></p>
+        </div>
+      </div>
+    </dialog>
+
+    <script type="module" src="assets/app.js?v=20260620-3"></script>
+  </body>
 </html>

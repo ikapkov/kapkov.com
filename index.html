@@ -2,6 +2,7 @@
 <html lang="bg">
   <head>
     <meta charset="utf-8" />
+    <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>арх. Иво Капков</title>
     <meta
@@ -10,7 +11,8 @@
     />
     <link rel="icon" type="image/png" href="assets/brand/logo.png" />
     <link rel="apple-touch-icon" href="assets/brand/logo.png" />
-    <link rel="stylesheet" href="assets/styles.css?v=20260620-2" />
+    <link id="canonicalUrl" rel="canonical" href="https://kapkov.com/news" />
+    <link rel="stylesheet" href="assets/styles.css?v=20260620-3" />
     <script type="importmap">
       {
         "imports": {
@@ -48,12 +50,12 @@
         </button>
       </section>
 
-      <section class="gallery-section tab-panel" id="gallery" data-tab-panel="gallery" aria-labelledby="gallery-title">
+      <section class="gallery-section tab-panel" id="gallery" data-tab-panel="gallery" aria-labelledby="gallery-title" hidden>
         <h2 id="gallery-title">Галерия</h2>
         <div class="gallery-grid" id="galleryGrid" aria-live="polite"></div>
       </section>
 
-      <section class="bio-section tab-panel" id="biography" data-tab-panel="biography" aria-labelledby="bio-title">
+      <section class="bio-section tab-panel" id="biography" data-tab-panel="biography" aria-labelledby="bio-title" hidden>
         <div class="bio-copy">
           <h2 id="bio-title">Биография</h2>
           <p>
@@ -94,7 +96,7 @@
         </div>
       </section>
 
-      <section class="text-section contact-section tab-panel" id="contacts" data-tab-panel="contacts" aria-labelledby="contact-title">
+      <section class="text-section contact-section tab-panel" id="contacts" data-tab-panel="contacts" aria-labelledby="contact-title" hidden>
         <h2 id="contact-title">Контакти</h2>
         <div class="contact-copy">
           <p>арх. Иво Капков</p>
@@ -136,6 +138,6 @@
       </div>
     </dialog>
 
-    <script type="module" src="assets/app.js?v=20260620-2"></script>
+    <script type="module" src="assets/app.js?v=20260620-3"></script>
   </body>
 </html>

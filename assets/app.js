@@ -28,6 +28,7 @@ const brandText = document.querySelector(".brand span");
 const primaryNav = document.querySelector(".site-nav");
 const languageSwitcher = document.querySelector(".language-switcher");
 const metaDescription = document.querySelector('meta[name="description"]');
+const canonicalUrl = document.querySelector("#canonicalUrl");
 const galleryTitle = document.querySelector("#gallery-title");
 const bioCopy = document.querySelector(".bio-copy");
 const bioMediaImage = document.querySelector(".bio-media img");
@@ -81,6 +82,18 @@ const I18N = {
     htmlLang: "bg",
     title: "арх. Иво Капков",
     description: "Архитектурна галерия с проекти, изображения и интерактивни 3D модели.",
+    pageTitles: {
+      news: "арх. Иво Капков",
+      gallery: "Галерия | арх. Иво Капков",
+      biography: "Биография | арх. Иво Капков",
+      contacts: "Контакти | арх. Иво Капков",
+    },
+    pageDescriptions: {
+      news: "Архитектурно портфолио на арх. Иво Капков.",
+      gallery: "Архитектурна галерия с проекти, изображения и интерактивни 3D модели.",
+      biography: "Биография, професионален опит и научна дейност на арх. Иво Капков.",
+      contacts: "Контакти и професионални профили на арх. Иво Капков.",
+    },
     brand: "арх. Иво Капков",
     homeLabel: "Начало",
     primaryNav: "Основна навигация",
@@ -133,6 +146,18 @@ const I18N = {
     htmlLang: "en",
     title: "Ivo Kapkov, Architect",
     description: "Architectural portfolio with projects, images and interactive 3D models.",
+    pageTitles: {
+      news: "Ivo Kapkov, Architect",
+      gallery: "Gallery | Ivo Kapkov, Architect",
+      biography: "Biography | Ivo Kapkov, Architect",
+      contacts: "Contacts | Ivo Kapkov, Architect",
+    },
+    pageDescriptions: {
+      news: "Architectural portfolio of Ivo Kapkov, Architect.",
+      gallery: "Architectural gallery with projects, images and interactive 3D models.",
+      biography: "Biography, professional experience and academic work of Ivo Kapkov, Architect.",
+      contacts: "Contact details and professional profiles of Ivo Kapkov, Architect.",
+    },
     brand: "Ivo Kapkov, Architect",
     homeLabel: "Home",
     primaryNav: "Main navigation",
@@ -184,14 +209,22 @@ const I18N = {
 };
 
 const getActiveTab = () => {
-  const queryTab = new URLSearchParams(window.location.search).get("route");
   const hashTab = window.location.hash.replace("#", "");
   const pathTab = decodeURIComponent(window.location.pathname)
     .replace(/^\/+|\/+$/g, "")
     .toLowerCase();
-  const rawTab = queryTab || hashTab || pathTab || DEFAULT_TAB;
+  const rawTab = hashTab || pathTab || DEFAULT_TAB;
   const tab = LEGACY_TABS[rawTab] || rawTab;
   return VALID_TABS.includes(tab) ? tab : DEFAULT_TAB;
+};
+
+const updatePageMetadata = (tab) => {
+  const translation = I18N[currentLanguage];
+  document.title = translation.pageTitles[tab] || translation.title;
+  if (metaDescription) {
+    metaDescription.setAttribute("content", translation.pageDescriptions[tab] || translation.description);
+  }
+  if (canonicalUrl) canonicalUrl.href = `https://kapkov.com${TAB_PATHS[tab]}`;
 };
 
 const setActiveTab = (tab = getActiveTab()) => {
@@ -200,6 +233,7 @@ const setActiveTab = (tab = getActiveTab()) => {
   if (currentUrl !== canonicalPath) {
     window.history.replaceState({ tab }, "", canonicalPath);
   }
+  updatePageMetadata(tab);
 
   tabPanels.forEach((panel) => {
     panel.hidden = panel.dataset.tabPanel !== tab;
@@ -343,8 +377,7 @@ const applyLanguage = () => {
   const translation = getTranslation();
 
   document.documentElement.lang = translation.htmlLang;
-  document.title = translation.title;
-  if (metaDescription) metaDescription.setAttribute("content", translation.description);
+  updatePageMetadata(getActiveTab());
   if (brandText) brandText.textContent = translation.brand;
   if (brandLink) brandLink.setAttribute("aria-label", translation.homeLabel);
   if (primaryNav) primaryNav.setAttribute("aria-label", translation.primaryNav);
